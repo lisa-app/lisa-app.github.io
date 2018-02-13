@@ -28,9 +28,14 @@ $(window).scroll(function() {
 
 var video = document.getElementById('video-background')
 document.addEventListener('click', function () {
+    video.play();
     video.muted = !video.muted;
     return false;
 });
+document.addEventListener('dragstart', function () {
+    video.play();
+});
+
 video.addEventListener('timeupdate', function () {
   //console.log(video.currentTime);
   if (video.currentTime>31) {
