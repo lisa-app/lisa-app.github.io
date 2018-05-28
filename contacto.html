@@ -30,6 +30,7 @@
     </script>
 
 
+
 	<!-- Document Title
 	============================================= -->
 	<title>LISA Seguros - Contacto</title>
@@ -164,7 +165,7 @@
 						<!-- Contact Form
 						============================================= -->
 						
-                        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
+                        <form class="nobottommargin" id="template-contactform" name="template-contactform"  ><!-- name="template-contactform" action="include/sendemail.php"-->
                             
 							<div class="col_full">
 								<label for="template-contactform-name" >Nombre o Empresa <small>*</small></label>
@@ -212,15 +213,38 @@
 							</div>
 
 							<div class="col_full">
-								<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Enviar</button>
+<!--								<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Enviar</button>
+-->						        <!--<input type="submit" name="enviar" value="Enviar" id="create_account" />-->
                                 
                                 <div class="form-check" style="padding-top:10px;">
-								<input type="checkbox" class="form-check-input" id="exampleCheck1">
+								<input type="checkbox" class="required form-check-input" id="exampleCheck1" name="template-contactform-legal">
 								<label class="form-check-label" for="exampleCheck1" style="text-transform:none; ">Acepto los términos y condiciones (<a href="proteccion-datos.html" target="_blank">Condiciones de servicio</a> &amp; <a href="politica-privacidad.html" target="_blank">Política de Privacidad</a>)</label>
                                 </div>
 							</div>
 
 						</form>
+                        
+							<!--<button class="button button-3d nomargin" id="template-contactform-submit-fix" name="template-contactform-submit" value="submit">Enviar</button>
+                        -->
+                        <a href="#myModal" data-lightbox="inline" id="template-contactform-submit-fix" class="button button-3d nomargin">Enviar</a>
+                            
+                        
+                        <!-- Modal -->
+                       <!--<div class="modal-on-load" data-target="#myModal"></div>-->
+                        
+                        <div class="modal1 mfp-hide" id="myModal">
+						<div class="block divcenter" style="background-color: #FFF; max-width: 500px;">
+							<div class="center" style="padding: 50px;">
+								<h3>Gracias por contactar con LISA</h3>
+                                
+								<p class="nobottommargin mayor">Se ha enviado la consulta, nos pondremos en contacto contigo en menos de 24h</p>
+							</div>
+							<div class="section center nomargin" style="padding: 30px;">
+								<a href="#" class="button" onClick="$.magnificPopup.close();return false;">Ok</a>
+							</div>
+						</div>
+					</div> <!-- Modal -->
+                        
 					</div>
 
 
@@ -387,6 +411,44 @@
 		});
 
 	</script><!-- Google Map End -->
+    
+
+            <!-- form -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        
+        $('#template-contactform-submit-fix').click(function(){
+            
+            
+            var dataString = $('#template-contactform').serialize();
+
+            
+            console.log(dataString);
+
+            //console.log(dataString);
+            
+            /*alert('Datos serializados: '+dataString);*/
+           
+            
+            var jqxhr = $.ajax({
+                url: 'https://script.google.com/macros/s/AKfycbxxK4j39b8JWVvju6fKBrXXtqVyVOaOgbut4nZ3w5ssi9zZrJ0/exec',
+                method: "POST",
+                dataType: "text",
+                data: dataString,
+                success: function (data) {
+                    console.log(data);
+                    $("#myModal").removeClass("mfp-hide");
+                }
+             });
+
+            
+            
+    
+        });
+    });
+    </script>
+    
 
 </body>
 </html>
