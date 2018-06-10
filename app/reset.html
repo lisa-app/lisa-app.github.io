@@ -25,6 +25,10 @@
         opacity:.4;
         pointer-events:none;
       }
+      #mmain.none{
+        display:none;
+        pointer-events:none;
+      }
       BUTTON{
 color: #fff;line-height: 44px;font-size: 17px;height: 44px;background: #8d0ece;text-align: center;border-radius: 5px;cursor: pointer;border:0;outline:none;padding:0px 15px;        
       }
@@ -35,7 +39,7 @@ color: #fff;line-height: 44px;font-size: 17px;height: 44px;background: #8d0ece;t
     <img class='mlogo' src=''><br>
     Escriba la nueva contraseña para la cuenta <span id="ema"></span>:<br>
     <input id="npass"><br>
-    <button>ACEPTAR</button>
+    <button onclick="letsdoit()">ACEPTAR</button>
   </div>
 </body>
 <script>
@@ -102,7 +106,11 @@ function handleResetPassword(auth, actionCode, continueUrl) {
 
 function letsdoit(){
     // Save the new password.
-    auth.confirmPasswordReset(actionCode, newPassword).then(function(resp) {
+    console.log('btn')
+    var npss = document.getElementById('npass').value;
+    if (npss.length==0) return;
+    return;
+    auth.confirmPasswordReset(actionCode, npss).then(function(resp) {
       // Password reset has been confirmed and new password updated.
 
       // TODO: Display a link back to the app, or sign-in the user directly
@@ -115,6 +123,8 @@ function letsdoit(){
     }).catch(function(error) {
       // Error occurred during confirmation. The code might have expired or the
       // password is too weak.
+	    document.getElementById('mmain').classList.remove('dis');
+			document.getElementById('mmain').innerHTML= "El contenido para esta petición ha dejado de estar disponible"      
     });
 
 }
