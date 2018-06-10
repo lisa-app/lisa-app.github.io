@@ -1,5 +1,21 @@
 <html>
+  <head>
+    <style>
+      .mlogo{
+        width: 20%;
+      }
+      #ffbb{
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
 <body>
-
+  <img class='mlogo' src=''><br>
+  <iframe id='ffbb'></iframe>
 </body>
+<script>
+  var _u = window.location.href.split('?')[1];
+  document.getElementById('ffbb').src = 'https://lisa-41492.firebaseapp.com/__/auth/action?'+_u;
+</script>
 </html>
