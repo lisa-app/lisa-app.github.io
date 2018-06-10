@@ -107,7 +107,7 @@ function handleResetPassword(auth, actionCode, continueUrl) {
   }).catch(function(error) {
     // Invalid or expired action code. Ask user to try to reset the password
       document.getElementById('mmain').classList.remove('dis');
-      document.getElementById('mmain').innerHTML= "Código inválido o expirado.<br>El contenido para esta petición ha dejado de estar disponible"      
+      document.getElementById('mmain').innerHTML= "<img class='mlogo' src='logoHR2_small.png'><br><br>Código inválido o expirado.<br>El contenido para esta petición ha dejado de estar disponible"      
   });
 }
 
