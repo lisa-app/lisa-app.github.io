@@ -106,7 +106,8 @@ function handleResetPassword(auth, actionCode, continueUrl) {
 
   }).catch(function(error) {
     // Invalid or expired action code. Ask user to try to reset the password
-    // again.
+      document.getElementById('mmain').classList.remove('dis');
+      document.getElementById('mmain').innerHTML= "Código inválido o expirado.<br>El contenido para esta petición ha dejado de estar disponible"      
   });
 }
 
@@ -129,8 +130,8 @@ function letsdoit(){
     }).catch(function(error) {
       // Error occurred during confirmation. The code might have expired or the
       // password is too weak.
-	    document.getElementById('mmain').classList.remove('dis');
-			document.getElementById('mmain').innerHTML= "El contenido para esta petición ha dejado de estar disponible"      
+      document.getElementById('mmain').classList.remove('dis');
+      document.getElementById('mmain').innerHTML= "El contenido para esta petición ha dejado de estar disponible"      
     });
 
 }
