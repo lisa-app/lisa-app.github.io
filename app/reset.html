@@ -27,7 +27,7 @@
       #mmain{
 	    text-align: center;
       }
-      #mmain.dis{
+      .dis{
         opacity:.4;
         pointer-events:none;
       }
@@ -46,7 +46,7 @@ color: #fff;line-height: 44px;font-size: 16px;height: 44px;background: #8d0ece;t
     <img class='mlogo' src='logoHR2_small.png'><br>
     Escriba la nueva contraseña para la cuenta <span id="ema"></span>:<br>
     <input id="npass"><br>
-    <button onclick="letsdoit()">ACEPTAR</button>
+    <button id="btnS" onclick="letsdoit()">ACEPTAR</button>
   </div>
 </body>
 <script>
@@ -118,7 +118,10 @@ function letsdoit(){
     console.log('btn')
     var npss = document.getElementById('npass').value;
     if (npss.length==0) return;
-    return;
+    //return;
+    document.getElementById('btnS').classList.add('dis');
+    document.getElementById('btnS').innerHTML= "cambiando..."      
+	
     auth.confirmPasswordReset(actionCode, npss).then(function(resp) {
       // Password reset has been confirmed and new password updated.
 
