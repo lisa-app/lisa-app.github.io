@@ -35,7 +35,7 @@
         pointer-events:none;
       }
       BUTTON{
-color: #fff;line-height: 44px;font-size: 17px;height: 44px;background: #8d0ece;text-align: center;border-radius: 5px;cursor: pointer;border:0;outline:none;padding:0px 15px;        
+color: #fff;line-height: 44px;font-size: 16px;height: 44px;background: #8d0ece;text-align: center;border-radius: 5px;cursor: pointer;border:0;outline:none;padding:0px 15px;        
 	          margin-top: 25px;
       }
     </style>
@@ -128,11 +128,13 @@ function letsdoit(){
       // TODO: If a continue URL is available, display a button which on
       // click redirects the user back to the app via continueUrl with
       // additional state determined from that URL's parameters.
+      document.getElementById('mmain').classList.remove('dis');
+      document.getElementById('mmain').innerHTML= "Cambio realizado correctamente.<br>Ya puede acceder a su cuenta con la nueva contraseña.<br>Gracias por confiar en LISA"      
     }).catch(function(error) {
       // Error occurred during confirmation. The code might have expired or the
       // password is too weak.
       document.getElementById('mmain').classList.remove('dis');
-      document.getElementById('mmain').innerHTML= "El contenido para esta petición ha dejado de estar disponible"      
+      document.getElementById('mmain').innerHTML= "Ha habido un error y su petición no ha podido ser procesada"      
     });
 
 }
