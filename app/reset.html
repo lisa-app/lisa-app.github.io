@@ -133,12 +133,12 @@ function letsdoit(){
       // click redirects the user back to the app via continueUrl with
       // additional state determined from that URL's parameters.
       document.getElementById('mmain').classList.remove('dis');
-      document.getElementById('mmain').innerHTML= "Cambio realizado correctamente.<br>Ya puede acceder a su cuenta con la nueva contraseña.<br>Gracias por confiar en LISA"      
+      document.getElementById('mmain').innerHTML= "<img class='mlogo' src='logoHR2_small.png'><br><br>Cambio realizado correctamente.<br>Ya puede acceder a su cuenta con la nueva contraseña.<br>Gracias por confiar en LISA"      
     }).catch(function(error) {
       // Error occurred during confirmation. The code might have expired or the
       // password is too weak.
       document.getElementById('mmain').classList.remove('dis');
-      document.getElementById('mmain').innerHTML= "Ha habido un error y su petición no ha podido ser procesada"      
+      document.getElementById('mmain').innerHTML= "<img class='mlogo' src='logoHR2_small.png'><br><br>Ha habido un error y su petición no ha podido ser procesada"      
     });
 
 }
