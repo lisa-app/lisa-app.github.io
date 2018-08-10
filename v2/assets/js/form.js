@@ -15,7 +15,7 @@ form.addEventListener('submit', function (e) {
 function submitForm(e, formName) {
   e.preventDefault();
   let name = $(formName + ' .js-field__first-name').val();
-  let lastName = $(formName + ' .js-field__last-name').val();
+  //let lastName = $(formName + ' .js-field__last-name').val();
   let email = $(formName + ' .js-field__email').val();
   let phone = $(formName + ' .js-field__phone').val();
   let company = $(formName + ' .js-field__company').val();
@@ -24,7 +24,7 @@ function submitForm(e, formName) {
   
   let formData = {
     name: name,
-    lastName: lastName,
+    //lastName: lastName,
     email: email,
     phone: phone,
     company: company,
@@ -33,10 +33,11 @@ function submitForm(e, formName) {
   
   $.ajax({
     type: 'POST',
-    url: 'mail.php',
+    url: 'https://script.google.com/macros/s/AKfycbxxK4j39b8JWVvju6fKBrXXtqVyVOaOgbut4nZ3w5ssi9zZrJ0/exec',
     data: formData,
     success: function () {
       console.log('success');
+            document.getElementById("mensaje_ok").style.display = "block";
       //...
     },
     error: function () {
