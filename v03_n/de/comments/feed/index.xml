@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Kommentare zu Lisa	</title>
+	<atom:link href="https://lisa-seguros.com/de/comments/feed/" rel="self" type="application/rss+xml" />
+	<link>https://lisa-seguros.com/</link>
+	<description>Intelligente Versicherung</description>
+	<lastbuilddate>Sa, 15 Feb 2020 19:59:17 +0000</lastbuilddate>
+	<sy:updateperiod>
+	stündlich	</sy:updateperiod>
+	<sy:updatefrequency>
+	1	</sy:updatefrequency>
+	<generator>https://wordpress.org/?v=5.3.4</generator>
+			<item>
+				<title>
+				Kommentar zu Hallo, Welt! von einem WordPress-Kommentator				</title>
+				<link>https://lisa-seguros.com/2020/02/15/hola-mundo/#comment-1</link>
+		<dc:creator><![CDATA[Un comentarista de WordPress]]></dc:creator>
+		<pubdate>Sa, 15 Feb 2020 19:59:17 +0000</pubdate>
+		<guid ispermalink="false">https://lisa-seguros.com/?p=1#comment-1</guid>
+					<description><![CDATA[Hola, esto es un comentario.
+Para empezar a moderar, editar y borrar comentarios, por favor, visita la pantalla de comentarios en el escritorio.
+Los avatares de los comentaristas provienen de <a href="https://gravatar.com/">Gravatar</a>.]]></description>
+		<content:encoded><(CDATA) Hallo<p>, das ist ein Kommentar<br/>.</p>
+<p>Um mit dem Moderieren, Bearbeiten und Löschen von Kommentaren zu beginnen, besuchen Sie bitte den Kommentar-Bildschirm auf dem Desktop<br/>.</p>
+<p>Die Avatare der Kommentatoren kommen aus <a href="https://gravatar.com/">Gravatar</a>.
+</p>]]></content:encoded>
+						</item>
+			</channel>
+</rss>
