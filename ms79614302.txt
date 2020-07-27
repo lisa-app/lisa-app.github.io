@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Archivo de comprobación de propiedad del dominio para Office 365: colocar en la raíz del sitio web",
+  "Domain": "lisa-seguros.com",
+  "Id": "d6f3b0b6-9902-43bb-b177-46e64f9e4028"
+}
