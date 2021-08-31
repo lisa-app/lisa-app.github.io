@@ -25,38 +25,56 @@
 		<form method="post" onsubmit="return sendF()" action="https://web.lisa-seguros.com/api/v3/">
 			<div class="columna_100 ">
 				<div class="interior-columna-1 control-group">
-					<label for="nombre" class="">Nombre y apellidos</label>
+					<label for="name" class="">Nombre y apellidos</label>
 					<input size="1" type="text" name="name" placeholder="Nombre y apellidos" >
-				</div>
-			</div>
-			<div class="columna_100 ">
-				<div class="interior-columna-1 control-group">
-					<label for="nombre" class="">Dirección</label>
-					<input size="1" type="text" name="address"  placeholder="Dirección" >
-				</div>
-			</div>
-			<div class="columna_50 ">
-				<div class="interior-columna-1 control-group">
-					<label for="web" class="">Localidad</label>
-					<input size="1" type="text" name="city" placeholder="Localidad" required="required" aria-required="true">
-				</div>
-			</div>
-			<div class="columna_50 ">
-				<div class="interior-columna-1 control-group">
-					<label for="web" class="">DNI</label>
-					<input size="1" type="text" name="IDcard" placeholder="DNI" required="required" aria-required="true">
-				</div>
-			</div>
-			<div class="columna_50 ">
-				<div class="interior-columna-1 control-group">
-					<label for="telefono" class="">Teléfono</label>
-					<input size="1" type="text" name="phone" placeholder="Teléfono" required="required" aria-required="true">
 				</div>
 			</div>
 			<div class="columna_50 ">
 				<div class="interior-columna-1 control-group">
 					<label for="email" class="">E-MAIL</label>
 					<input size="1" type="text" name="email" placeholder="Tu E-mail" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="IDcard" class="">DNI</label>
+					<input size="1" type="text" name="IDcard" placeholder="DNI" required="required" aria-required="true">
+				</div>
+			</div>			
+			<div class="columna_100 ">
+				<div class="interior-columna-1 control-group">
+					<label for="address" class="">Dirección</label>
+					<input size="1" type="text" name="address"  placeholder="Dirección" >
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="city" class="">Localidad</label>
+					<input size="1" type="text" name="city" placeholder="Localidad" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="postalc" class="">Código Postal</label>
+					<input size="1" type="text" name="postalc" placeholder="Código Postal" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="prov" class="">Provincia</label>
+					<input size="1" type="text" name="prov" placeholder="Provincia" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="country" class="">Páis</label>
+					<input size="1" type="text" name="country" disabled value="España" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_100 ">
+				<div class="interior-columna-1 control-group">
+					<label for="phone" class="">Teléfono de Contacto</label>
+					<input size="1" type="text" name="phone" placeholder="Teléfono de Contacto" required="required" aria-required="true">
 				</div>
 			</div>
 			<input type="hidden" name="productID" value="L101POD">
