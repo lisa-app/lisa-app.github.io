@@ -77,6 +77,13 @@
 					<input size="1" type="text" name="phone" placeholder="Teléfono de Contacto" required="required" aria-required="true">
 				</div>
 			</div>
+			<div class="columna_100 ">
+				<div class="interior-columna-1 control-group">
+					<label for="comments" class="">Comentarios</label>
+					<input size="1" type="text" name="comments" placeholder="Comentarios">
+				</div>
+			</div>
+			
 			<input type="hidden" name="productID" value="L101POD">
 			<div class="columna_100 ">
 				Acepto la <a href="/es/legal/politica-de-privacidad.php" target="_blank">Política de Privacidad</a> <input name="chkPrivacidad" type="checkbox" id="privacidad" value="1" required="required" style="margin-right: 6px; float: none;"> <br><br>
@@ -90,15 +97,14 @@
   
   <script>
 function sendF(){
-  const inputFeilds = document.querySelectorAll("input");
-  const validInputs = Array.from(inputFeilds).filter( input => input.value == "");
-  //console.log(validInputs.length)  
-  if (validInputs.length){
-    alert('Es necesario rellenar todos los campos');
-    return false; 
+  const inputFields = document.querySelectorAll("input");
+  const validInputs = Array.from(inputFields).filter( input => input.value == "");
+  if (validInputs.length==0 || (validInputs.length==1 && validInputs[0].name=='comments')){
+    return true; 
   }else{
     //send
-    return true; 
+    alert('Es necesario rellenar todos los campos');
+    return false; 
   }
 }
 </script>
