@@ -100,9 +100,10 @@ function sendF(){
   const inputFields = document.querySelectorAll("input");
   const validInputs = Array.from(inputFields).filter( input => input.value == "");
   if (validInputs.length==0 || (validInputs.length==1 && validInputs[0].name=='comments')){
-    $('button').innerHTML = '...';
-    $('button').setAttribute('style','pointer-events:none;');
-    return true; 
+	var btn = document.getElementsByTagName('button')[0];
+	btn.innerHTML = '...';
+	btn.setAttribute('style','pointer-events:none;');
+	return true; 
   }else{
     //send
     alert('Es necesario rellenar todos los campos');
