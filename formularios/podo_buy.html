@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-ES">
+<head>
+	<meta name="lang" content="es" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
+    <title>LISA | Seguros Inteligentes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	 <link href="/css/veridika.css" rel="stylesheet">
+   	<link rel="preconnect" href="https://fonts.googleapis.com">
+   	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+	<link href="/css/fontawesome.css" rel="stylesheet">
+	<link href="/css/fa-brands.css" rel="stylesheet">
+	<link href="/css/fa-solid.css" rel="stylesheet">
+    
+</head>
+<body class="interior">
+<section class="form-contratos">
+	<div class="frase">
+		<div class="tit2">QUIROPODIA 3 PIES</div>
+	</div>
+	<div class="" style="">
+
+		<form method="post" onsubmit="return sendF()" action="https://web.lisa-seguros.com/api/v3/">
+			<div class="columna_100 ">
+				<div class="interior-columna-1 control-group">
+					<label for="name" class="">Nombre y apellidos</label>
+					<input size="1" type="text" name="name" placeholder="Nombre y apellidos" >
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="email" class="">E-MAIL</label>
+					<input size="1" type="text" name="email" placeholder="Tu E-mail" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="IDcard" class="">DNI</label>
+					<input size="1" type="text" name="IDcard" placeholder="DNI" required="required" aria-required="true">
+				</div>
+			</div>			
+			<div class="columna_100 ">
+				<div class="interior-columna-1 control-group">
+					<label for="address" class="">Dirección</label>
+					<input size="1" type="text" name="address"  placeholder="Dirección" >
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="city" class="">Localidad</label>
+					<input size="1" type="text" name="city" placeholder="Localidad" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="postalc" class="">Código Postal</label>
+					<input size="1" type="text" name="postalc" placeholder="Código Postal" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="prov" class="">Provincia</label>
+					<input size="1" type="text" name="prov" placeholder="Provincia" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_50 ">
+				<div class="interior-columna-1 control-group">
+					<label for="country" class="">Páis</label>
+					<input size="1" type="text" name="country" readonly="readonly"  value="España" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_100 ">
+				<div class="interior-columna-1 control-group">
+					<label for="phone" class="">Teléfono de Contacto</label>
+					<input size="1" type="text" name="phone" placeholder="Teléfono de Contacto" required="required" aria-required="true">
+				</div>
+			</div>
+			<div class="columna_100 ">
+				<div class="interior-columna-1 control-group">
+					<label for="comments" class="">Comentarios</label>
+					<input size="1" type="text" name="comments" placeholder="Comentarios">
+				</div>
+			</div>
+			
+			<input type="hidden" name="productID" value="L101POD">
+			<div class="columna_100 ">
+				Acepto la <a href="/es/legal/politica-de-privacidad.php" target="_blank">Política de Privacidad</a> <input name="chkPrivacidad" type="checkbox" id="privacidad" value="1" required="required" style="margin-right: 6px; float: none;"> <br><br>
+			</div>
+			<div class="clearfix"></div>
+			<div align="center"><button type="submit" class="boton boton-fucsia">CONTRATAR</button></div>
+			<br><br>
+		</form>
+	</div>
+</section>
+  
+<script>
+function sendF(){
+  const inputFields = document.querySelectorAll("input");
+  const validInputs = Array.from(inputFields).filter( input => input.value == "");
+  if (validInputs.length==0 || (validInputs.length==1 && validInputs[0].name=='comments')){
+	var btn = document.getElementsByTagName('button')[0];
+	btn.innerHTML = '...';
+	btn.setAttribute('style','pointer-events:none;');
+	return true; 
+  }else{
+    //send
+    alert('Es necesario rellenar todos los campos');
+    return false; 
+  }
+}
+document.querySelectorAll("input[name=productID]")[0].value = window.__sprd;
+</script>
+</body>
+</html>
