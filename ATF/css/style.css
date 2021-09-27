@@ -11378,8 +11378,17 @@ footer h5{
   max-width: 170px !important;
 }
 .logo-row {
-    width: 200px;
+    width: 450px;
   }
 .logo-img{
-    filter: drop-shadow(3px 4px 6px rgba(0,0,0,.4));  
+  height: 50px;
+  filter:  drop-shadow(0px 0px 1px rgba(0,0,0,.2));
+}
+.logo-img2{
+  xfilter: drop-shadow(1px 1px 0px rgba(0,0,0,.5));
+}
+
+.logo-img.logo-color-change {
+    -webkit-filter: brightness(1) invert(1);
+    filter: brightness(1) invert(.8);
 }
