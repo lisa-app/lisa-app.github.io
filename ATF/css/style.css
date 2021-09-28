@@ -11323,9 +11323,17 @@ h3.v2{
     color: #fff;
 }
 .port-view-more-dark {
-    background: #f3dfff;
-    color:#555;
-}
+    background: #ffd9c4;
+    color: #555;
+    padding: 30px 0;
+    letter-spacing: -.05em;
+    font-weight: 600;
+    font-size: 24px;
+  }
+.port-view-more-dark:hover {
+    background: #fdbc98;
+    color: #fff;
+}  
 .iconL{
     color: #fff;
     font-size: 84px;
@@ -11391,4 +11399,84 @@ footer h5{
 .logo-img.logo-color-change {
     -webkit-filter: brightness(1) invert(1);
     filter: brightness(1) invert(.8);
+}
+
+.blog2-post-title-cont .post-prev-title {
+    border-left: none;
+}
+.post-prev-date-cont {
+    top: auto;
+  }
+  .bgman{
+background: url(../images/why2.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: right;
+    background-position-y: bottom;    
+  }
+  .blog2-post-title-cont .post-prev-title {
+    padding: 10px 0 15px 20px;
+  }
+
+.post-prev-title h3 {
+  line-height: 1.2;
+  font-family: 'Poppins'
+}
+.minibtn{
+    text-align: center;
+    font-size: 13px;
+    background-color: #ebcaff;
+    margin: 0 auto;
+    width: 40%;
+    border-radius: 40px;
+    margin-top: 30px;
+    margin-bottom: -30px;  
+}
+.mtest {
+    font-size: 15px;  
+}
+.mtest h3{
+    font-family: 'Poppins';
+    letter-spacing: -.05em;
+    margin: 8px 0 3px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #666;
+  }
+.mtest IMG{
+  width: 1em;
+  padding-top: 50px;
+}
+
+.mtestt{
+    color: #a93ee9;
+    text-align: center;
+    margin: 100px 0 15px 0;
+    font-size: 23px;
+    letter-spacing: -.05em;
+    font-weight: 700;
+}
+.rowT2{
+padding: 20px 0 60px 0;
+    text-align: center;
+    font-size: 24px;
+    color: #555;
+    font-weight: 600;
+    letter-spacing: -.05em;  
+}
+dt{
+    background: #f0f0f0;  
+}
+.loginBTN{
+    background-color: #b700f3;
+    padding: 0 7px;
+    border-radius: 4px;
+    color: #fff;
+    letter-spacing: 0;
+  }
+
+@media (min-width: 1025px){
+.header-1 #main-menu .nav.navbar-nav {
+    margin-right: 14px !important;
+}
 }
