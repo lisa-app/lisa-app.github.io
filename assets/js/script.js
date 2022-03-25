@@ -59,19 +59,33 @@ $(document).ready(function() {
 
   //  HEADER NAVIGATION
   $(".submenu").click(function(event){
-    if( $(".submenu").children("ul").hasClass('active') ){
+    if( $(this).children("ul").hasClass('active') ){
+      $(this).children("ul").removeClass('active');
+      $(this).children("ul").hide(500);
+    } else {
       $(".submenu").children("ul").removeClass('active');
       $(".submenu").children("ul").hide(500);
-    } 
-    $(this).children("ul").slideToggle(1000);
-    $(this).children("ul").addClass('active');
+      $(this).children("ul").addClass('active');
+      $(this).children("ul").show(500);
+    }
   });
 
   $(".submenu ul").click(function(ev){
     ev.stopPropagation();
   });  
 
-  //  CLIP BUTTON SCROLL UP
+  //  STICKY HEADER
+  if($(window).width() >= 600){
+    $(window).scroll(function(){
+      if($(this).scrollTop() > 100){
+        $('.header').addClass('sticky')
+      } else{
+        $('.header').removeClass('sticky')
+      }
+    });
+  };
+
+  //  SCROLL TO TOP
   const mybutton = $("#button-top")
   
   mybutton.click(function(event){
@@ -80,7 +94,6 @@ $(document).ready(function() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   });
   
-  //  SHOW HIDE BUTTON SCROLL UP
   window.onscroll = function() {scrollFunction(mybutton)};
   
   function scrollFunction(mybutton) {
