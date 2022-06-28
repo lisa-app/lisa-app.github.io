@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="st_globalStyles">
+
+/* GROUPING */
+[data-id].ui-selecting {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+[data-id].ui-selected {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="og:type" content="website"><meta name="twitter:card" content="photo">
+<style id="hotspots-styles">
+    .hotspot {
+      position: absolute;
+      border: 1px solid #2a9fd8;
+      background: rgba(0, 173, 255, 0.54);
+      opacity: 0;
+      z-index: -1;
+      pointer-events:none;
+    }
+  </style><style id="hide-styles">
+    .hotspot {
+      display:none !important;
+    }
+  </style><style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700,300,600,200");
+
+.screen textarea:focus,
+.screen input:focus {
+  outline: none;
+}
+
+.screen * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.screen div {
+  -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+  display: contents;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.component-wrapper * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+  pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+  visibility: hidden !important;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.full-width-a {
+  width: 100%;
+}
+
+.full-height-a {
+  height: 100%;
+}
+
+.container-center-vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container-center-vertical > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.auto-animated div {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated input {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+  opacity: 1;
+}
+
+.overlay {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.overlay.animate-appear {
+  animation: reveal 0.3s ease-in-out 1 normal forwards;
+  display: block;
+  opacity: 0;
+}
+
+.overlay.animate-disappear {
+  animation: reveal 0.3s ease-in-out 1 reverse forwards;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overlay.animate-disappear * {
+  pointer-events: none;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-nodelay {
+  animation-delay: 0s;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.valign-text-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+input:focus {
+  outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root { 
+  --robins-egg-blue: #00c1fd;
+  --white: #ffffff;
+ 
+  --font-size-l: 16px;
+  --font-size-m: 14px;
+  --font-size-s: 12px;
+  --font-size-xl: 18px;
+  --font-size-xxl: 26px;
+ 
+  --font-family-nunito: "Nunito", Helvetica;
+}
+.nunito-extra-light-white-14px {
+  color: var(--white);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 200;
+}
+
+.nunito-light-white-14px {
+  color: var(--white);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 300;
+}
+
+.nunito-normal-white-14px {
+  color: var(--white);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.nunito-bold-white-14px {
+  color: var(--white);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 700;
+}
+
+
+/* screen - area-desplegado */
+
+.area-desplegado {
+  background-color: var(--white);
+  height: 2233px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 360px;
+}
+
+.area-desplegado .rectngulo-22-iM91X0 {
+  background-color: #000000;
+  height: 2170px;
+  left: 0px;
+  position: absolute;
+  top: 63px;
+  width: 360px;
+}
+
+.area-desplegado .lisa-iM91X0 {
+  background-color: transparent;
+  height: 287px;
+  left: 19px;
+  position: absolute;
+  top: 1913px;
+  width: 324px;
+}
+
+.area-desplegado .estamos-a-tu-complet-i8aHwN {
+  background-color: transparent;
+  color: #fde309;
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 600;
+  height: 116px;
+  left: 11px;
+  letter-spacing: 0.00px;
+  line-height: 16px;
+  position: absolute;
+  text-align: center;
+  top: 0px;
+  width: calc(100.00% - 22px);
+}
+
+.area-desplegado .lisa_logo_h_reverse-i8aHwN {
+  background-color: transparent;
+  bottom: 34px;
+  height: 159px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.area-desplegado .solucioneslisa-seguroscom-i8aHwN {
+  background-color: transparent;
+  bottom: 27px;
+  height: 26px;
+  left: 81px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  width: calc(100.00% - 103px);
+}
+
+.area-desplegado .email-i8aHwN {
+  background-color: transparent;
+  bottom: 35px;
+  height: 12px;
+  left: calc(18.27% - 3px);
+  object-fit: cover;
+  position: absolute;
+  width: 15px;
+}
+
+.area-desplegado .phone-i8aHwN {
+  background-color: transparent;
+  bottom: 4px;
+  height: 15px;
+  left: calc(18.27% - 3px);
+  object-fit: cover;
+  position: absolute;
+  width: 15px;
+}
+
+.area-desplegado .x34-911-438-385-i8aHwN {
+  background-color: transparent;
+  bottom: -2px;
+  height: 25px;
+  left: 81px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  width: calc(100.00% - 103px);
+}
+
+.area-desplegado .coberturas-iM91X0 {
+  background-color: transparent;
+  height: 1234px;
+  left: 32px;
+  position: absolute;
+  top: 648px;
+  width: 298px;
+}
+
+.area-desplegado .conflictos-jw7oJ7 {
+  background-color: transparent;
+  bottom: 0px;
+  height: 191px;
+  left: 1px;
+  position: absolute;
+  width: calc(100.00% - 3px);
+}
+
+.area-desplegado .servicio-de-solucin-kr4sBN {
+  background-color: transparent;
+  height: 45px;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 4px;
+  width: calc(100.00% - 60px);
+}
+
+.area-desplegado .check_yell-01-kr4sBN {
+  background-color: transparent;
+  height: 31px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 31px;
+}
+
+.area-desplegado .reclamaremos-y-defen-kr4sBN {
+  background-color: transparent;
+  height: 141px;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 52px;
+  width: calc(100.00% - 32px);
+}
+
+.area-desplegado .mediacion-jw7oJ7 {
+  background-color: transparent;
+  bottom: calc(21.56% - 56px);
+  height: 260px;
+  left: 1px;
+  position: absolute;
+  width: calc(100.00% - 2px);
+}
+
+.area-desplegado .mediacin-PtWvS9 {
+  background-color: transparent;
+  height: 27px;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 4px;
+  width: calc(100.00% - 74px);
+}
+
+.area-desplegado .check_yell-01-PtWvS9 {
+  background-color: transparent;
+  height: 31px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 31px;
+}
+
+.area-desplegado .la-mediacin-es-una-f-PtWvS9 {
+  background-color: transparent;
+  height: 233px;
+  left: 35px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 29px;
+  width: calc(100.00% - 33px);
+}
+
+.area-desplegado .escritos-jw7oJ7 {
+  background-color: transparent;
+  bottom: calc(47.34% - 95px);
+  height: 201px;
+  left: 2px;
+  position: absolute;
+  width: calc(100.00% - 3px);
+}
+
+.area-desplegado .redaccin-de-escritos-Wpzf53 {
+  background-color: transparent;
+  height: 27px;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 4px;
+  width: calc(100.00% - 61px);
+}
+
+.area-desplegado .con-la-finalidad-de-Wpzf53 {
+  background-color: transparent;
+  height: 174px;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 29px;
+  width: calc(100.00% - 32px);
+}
+
+.area-desplegado .check_yell-01-Wpzf53 {
+  background-color: transparent;
+  height: 31px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 31px;
+}
+
+.area-desplegado .orientacion-jw7oJ7 {
+  background-color: transparent;
+  height: 131px;
+  left: 1px;
+  position: absolute;
+  top: calc(35.72% - 47px);
+  width: calc(100.00% - 6px);
+}
+
+.area-desplegado .orientacin-jurdica-telefnica-Q1pxFY {
+  background-color: transparent;
+  height: 26px;
+  left: 34px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  overflow: hidden;
+  position: absolute;
+  text-align: left;
+  top: 4px;
+  width: calc(100.00% - 58px);
+}
+
+.area-desplegado .su-finalidad-es-ases-Q1pxFY {
+  background-color: transparent;
+  height: 105px;
+  left: 31px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 28px;
+  width: calc(100.00% - 29px);
+}
+
+.area-desplegado .check_yell-01-Q1pxFY {
+  background-color: transparent;
+  height: 31px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 31px;
+}
+
+.area-desplegado .multas-jw7oJ7 {
+  background-color: transparent;
+  height: 205px;
+  left: 0px;
+  position: absolute;
+  top: 170px;
+  width: calc(100.00% - 1px);
+}
+
+.area-desplegado .recurso-de-multas-en-hj529w {
+  background-color: transparent;
+  height: 81px;
+  left: 35px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: calc(100.00% - 63px);
+}
+
+.area-desplegado .presentacin-de-recur-hj529w {
+  background-color: transparent;
+  bottom: calc(49.09% - 20px);
+  height: 40px;
+  left: 36px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  width: calc(100.00% - 34px);
+}
+
+.area-desplegado .defensa-del-asegurad-hj529w {
+  background-color: transparent;
+  bottom: -2px;
+  height: 80px;
+  left: 35px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  width: calc(100.00% - 36px);
+}
+
+.area-desplegado .check_yell-01-hj529w {
+  background-color: transparent;
+  height: 31px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 31px;
+}
+
+.area-desplegado .monitorizacion-jw7oJ7 {
+  background-color: transparent;
+  height: 110px;
+  left: 1px;
+  position: absolute;
+  top: 41px;
+  width: calc(100.00% - 1px);
+}
+
+.area-desplegado .monitorizacin-de-sanciones-de-tu-vehculo-2NfjwA {
+  background-color: transparent;
+  height: 42px;
+  left: 35px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: calc(100.00% - 64px);
+}
+
+.area-desplegado .bsqueda-de-sanciones-2NfjwA {
+  background-color: transparent;
+  bottom: calc(35.71% - 14px);
+  height: 40px;
+  left: 35px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  width: calc(100.00% - 33px);
+}
+
+.area-desplegado .comunicacin-del-conductor-2NfjwA {
+  background-color: transparent;
+  bottom: -2px;
+  height: 23px;
+  left: 35px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  text-align: left;
+  width: calc(100.00% - 35px);
+}
+
+.area-desplegado .check_yell-01-2NfjwA {
+  background-color: transparent;
+  height: 31px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  width: 31px;
+}
+
+.area-desplegado .resumen-de-coberturas-de-tu-pliza-jw7oJ7 {
+  background-color: transparent;
+  color: var(--robins-egg-blue);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 700;
+  height: 24px;
+  left: 14px;
+  letter-spacing: 0.00px;
+  line-height: 65px;
+  position: absolute;
+  text-align: left;
+  top: -22px;
+  white-space: nowrap;
+  width: calc(100.00% - 27px);
+}
+
+.area-desplegado .rectngulo-27-iM91X0 {
+  background-color: #484848;
+  border-radius: 14px;
+  height: 254px;
+  left: 75px;
+  position: absolute;
+  top: 354px;
+  width: 209px;
+}
+
+.area-desplegado .grupo-9-iM91X0 {
+  background-color: transparent;
+  height: 185px;
+  left: 96px;
+  position: absolute;
+  top: 409px;
+  width: 171px;
+}
+
+.area-desplegado .nombre-juan-fernndez-EgEYoI {
+  background-color: transparent;
+  color: var(--white);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-m);
+  font-weight: 200;
+  height: 182px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 26px;
+  position: absolute;
+  text-align: left;
+  top: -1px;
+  width: calc(100.00% + 2px);
+}
+
+
+
+.area-desplegado .x-EgEYoI {
+  background-color: transparent;
+  height: 73px;
+  left: calc(45.56% - 1px);
+  letter-spacing: 0.00px;
+  line-height: 26px;
+  position: absolute;
+  text-align: left;
+  top: -4px;
+  white-space: nowrap;
+  width: 2px;
+}
+
+.area-desplegado .grupo-8-iM91X0 {
+  background-color: transparent;
+  height: 19px;
+  left: 89px;
+  position: absolute;
+  top: 367px;
+  width: 135px;
+}
+
+.area-desplegado .mis-datos-personales-0tjwbb {
+  background-color: transparent;
+  color: var(--robins-egg-blue);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+  height: calc(100.00% + 2px);
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 65px;
+  position: absolute;
+  text-align: left;
+  top: -23px;
+  white-space: nowrap;
+  width: calc(100.00% + 2px);
+}
+
+.area-desplegado .area-privada-iM91X0 {
+  background-color: transparent;
+  height: 229px;
+  left: 61px;
+  position: absolute;
+  top: 99px;
+  width: 240px;
+}
+
+.area-desplegado .rea-privada-QNdrUh {
+  background-color: transparent;
+  color: var(--robins-egg-blue);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 700;
+  height: 37px;
+  letter-spacing: 0.00px;
+  line-height: 65px;
+  position: absolute;
+  right: calc(48.75% - 77px);
+  text-align: left;
+  top: -15px;
+  white-space: nowrap;
+  width: 158px;
+}
+
+.area-desplegado .in_app_msg_ilustracion_escudo-QNdrUh {
+  background-color: transparent;
+  height: 62px;
+  left: calc(50.00% - 33px);
+  object-fit: cover;
+  position: absolute;
+  top: calc(36.53% - 23px);
+  width: 66px;
+}
+
+.area-desplegado .seguro-conductor-protegido-QNdrUh {
+  background-color: transparent;
+  bottom: calc(45.07% - 12px);
+  color: #fde309;
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+  height: 26px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 65px;
+  position: absolute;
+  text-align: left;
+  white-space: nowrap;
+  width: calc(100.00% + 2px);
+}
+
+.area-desplegado .con-la-garanta-de-das-QNdrUh {
+  background-color: transparent;
+  bottom: -4px;
+  height: 21px;
+  letter-spacing: 0.00px;
+  line-height: 14px;
+  position: absolute;
+  right: calc(49.45% - 74px);
+  text-align: left;
+  white-space: nowrap;
+  width: 149px;
+}
+
+.area-desplegado .das-QNdrUh {
+  background-color: transparent;
+  bottom: 25px;
+  height: 36px;
+  left: calc(49.51% - 18px);
+  object-fit: cover;
+  position: absolute;
+  width: 36px;
+}
+
+.area-desplegado .nav-iM91X0 {
+  background-color: transparent;
+  height: 64px;
+  left: 0px;
+  position: absolute;
+  top: -1px;
+  width: 360px;
+}
+
+.area-desplegado .rectngulo-1-xxw0E4 {
+  background-color: #1c1c1c;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.area-desplegado .logo-detector-de-radares-xxw0E4 {
+  background-color: transparent;
+  height: 27px;
+  left: 16px;
+  object-fit: cover;
+  position: absolute;
+  top: calc(45.95% - 12px);
+  width: 99px;
+}
+
+.area-desplegado .lnea-1-xxw0E4 {
+  background-color: transparent;
+  bottom: -1px;
+  height: 2px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.area-desplegado .rectngulo-2-xxw0E4 {
+  background-color: var(--robins-egg-blue);
+  border-radius: 8px;
+  height: 28px;
+  position: absolute;
+  right: 23px;
+  top: calc(47.22% - 13px);
+  width: 108px;
+}
+
+.area-desplegado .rea-clientes-xxw0E4 {
+  background-color: transparent;
+  bottom: calc(45.65% - 8px);
+  color: var(--white);
+  font-family: var(--font-family-nunito);
+  font-size: var(--font-size-s);
+  font-style: normal;
+  font-weight: 600;
+  height: 18px;
+  letter-spacing: 0.00px;
+  line-height: 12px;
+  position: absolute;
+  right: 38px;
+  text-align: left;
+  white-space: nowrap;
+  width: 76px;
+}
+</style><style id="action-links-styles">
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+#anima-interface{
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+.omniview-anima-action-links .link{
+  height: 30px;
+  width: 30px;
+  border-radius: 1000px;
+  background: #3B3B3B;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  user-select:none;
+  transition: width 0.25s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  text-decoration:none;
+  color:#fff;
+}
+.omniview-anima-action-links #comment-link .text,.omniview-anima-action-links #code-link .text{
+  display:none;
+  font-size:12px;
+  margin-right:5px;
+}
+.omniview-anima-action-links #comment-link:hover,.omniview-anima-action-links #code-link:hover{
+  width:105px;
+}
+.omniview-anima-action-links #comment-link.pop-active,.omniview-anima-action-links #code-link.pop-active{
+  width:105px;
+  background: #FF6250;
+}
+.omniview-anima-action-links #comment-link.pop-active .text,.omniview-anima-action-links #code-link.pop-active .text{
+  display:block
+}
+.omniview-anima-action-links #comment-link:hover .text,.omniview-anima-action-links #code-link:hover .text{
+  display:block;
+}
+
+.link.navigation{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  width:auto;
+  height:32px;
+  color:#fff;
+  font-size:12px;
+  cursor:default;
+  padding:0 5px;
+}
+.link.navigation .icon{
+  margin:0 6px;
+  fill:none;
+  stroke:currentColor;
+  cursor:pointer;
+}
+.link.navigation .icon.disabled{
+  opacity:0.5;
+  cursor:default;
+}
+
+
+.link.navigation .home-icon{
+  margin-left:6px;
+  fill:currentColor;
+  stroke:currentColor;
+  cursor:pointer;
+}
+
+.omniview-anima-action-links .restart{
+  height: 30px;
+  padding:0 12px;
+  background: #3B3B3B;
+  border-radius: 1000px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color:#f1f1f1;
+  font-size: 12px;
+}
+
+.omniview-anima-action-links{
+  display:flex;
+  align-items:center;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  font-family:Mulish, sans-serif;
+  transition: all 0.5s ease-in-out;
+  opacity:1;
+}
+
+.omniview-anima-action-links > * + *{
+   margin-right: 0;
+   margin-left: 10px;
+}
+
+.idle{
+  opacity:0;
+  pointer-events:none;
+}
+
+#popoverOpener {
+  position: absolute;
+  left: 50%;
+  margin-left: -10vw;
+  text-align: center;
+  top: 45vh;
+  width: 20vw;
+}
+
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  font-family: "sans-serif";
+  font-size: 14px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.popover.top {
+  margin-top: -12px
+}
+
+.popover.right {
+  margin-left: 10px
+}
+
+.popover.bottom {
+  margin-top: 10px
+}
+
+.popover.left {
+  margin-left: -10px
+}
+
+.popover-title {
+  padding: 8px 14px;
+  margin: 0;
+  font-size: 14px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 5px 5px 0 0
+}
+
+.popover-content {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  overflow:hidden;
+  font-family:Mulish, sans-serif;
+}
+
+
+
+.popover>.arrow,.popover>.arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid
+}
+
+.popover>.arrow {
+  border-width: 11px
+}
+
+.popover>.arrow:after {
+  content: "";
+  border-width: 10px
+}
+
+.popover.top>.arrow {
+  bottom: -11px;
+  left: 50%;
+  margin-left: -11px;
+  border-top-color: #999;
+  border-top-color: rgba(0,0,0,.25);
+  border-bottom-width: 0
+}
+
+.popover.top>.arrow:after {
+  bottom: 1px;
+  margin-left: -10px;
+  content: " ";
+  border-top-color: #fff;
+  border-bottom-width: 0
+}
+
+.popover.right>.arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-right-color: #999;
+  border-right-color: rgba(0,0,0,.25);
+  border-left-width: 0
+}
+
+.popover.right>.arrow:after {
+  bottom: -10px;
+  left: 1px;
+  content: " ";
+  border-right-color: #fff;
+  border-left-width: 0
+}
+
+.popover.bottom>.arrow {
+  top: -11px;
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999;
+  border-bottom-color: rgba(0,0,0,.25)
+}
+
+.popover.bottom>.arrow:after {
+  top: 1px;
+  margin-left: -10px;
+  content: " ";
+  border-top-width: 0;
+  border-bottom-color: #fff
+}
+
+.popover.left>.arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999;
+  border-left-color: rgba(0,0,0,.25)
+}
+
+.popover.left>.arrow:after {
+  right: 1px;
+  bottom: -10px;
+  content: " ";
+  border-right-width: 0;
+  border-left-color: #fff
+}
+
+
+
+#anima-comment-popover,#anima-code-popover{
+  background:#333333;
+  color:#fff;
+}
+
+#anima-comment-popover.top>.arrow,#anima-comment-popover.top>.arrow:after,#anima-code-popover.top>.arrow:after,#anima-code-popover.top>.arrow {
+  border-top-color:#333;  
+}
+
+#anima-comment-popover .btn,#anima-code-popover .btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 20px;
+  background: #FF6250;
+  color:#fff;
+  border-radius: 100px;
+  width: max-content;
+  text-decoration:none;
+}
+
+
+
+</style></head><body style="margin: 0;background: #000;"><input type="hidden" id="anPageName" name="page" value="area-desplegado"><div class="container-center-horizontal"><div class="area-desplegado screen " data-id="e5123931-444a-465b-9adf-ad2878c9a1b4"><div class="rectngulo-22-iM91X0" data-id="e393db19-8338-4fa7-9efb-035ce67b1ff1"></div><div class="lisa-iM91X0" data-id="585a4caa-e94a-4d72-b0ba-b6051cdda7e1"><p class="estamos-a-tu-complet-i8aHwN" data-id="8159f4b7-002b-4cb9-9457-018a8c8f7f25">Estamos a tu completa disposición para ayudarte en todo lo que necesites acerca de tu seguro.<br>Gracias por confiar en LISA Seguros Inteligentes.</p><img class="lisa_logo_h_reverse-i8aHwN" data-id="6cbeff7c-57b0-49a4-94f8-56bc4210fdb9" src="https://lisa-seguros.com/RBT/lisa-logo-h-reverse@1x.png" ><div class="solucioneslisa-seguroscom-i8aHwN nunito-extra-light-white-14px" data-id="6b580b82-7cf9-4e9b-9f2e-857db5356cd2">soluciones@lisa-seguros.com</div><img class="email-i8aHwN" data-id="10c7c24a-27f5-4d60-a048-3baf9a6f2ac3" src="https://lisa-seguros.com/RBT/email@1x.png" ><img class="phone-i8aHwN" data-id="f55e7705-989c-4728-9ecf-4b61118fb4b0" src="https://lisa-seguros.com/RBT/phone@1x.png" ><p class="x34-911-438-385-i8aHwN nunito-extra-light-white-14px" data-id="0410378b-9557-417b-b2e6-01c10461ab84">(+34) 911 438 385 </p></div><div class="coberturas-iM91X0" data-id="57ba5d88-6d85-446d-baca-f75bfc23c1f7"><div class="conflictos-jw7oJ7" data-id="fd95965c-2c2a-4753-a341-ea511b528a95"><p class="servicio-de-solucin-kr4sBN nunito-bold-white-14px" data-id="a3d45b95-16e3-4abb-90d0-1bf8ca547f53">SERVICIO DE SOLUCIÓN AMISTOSA DE CONFLICTOS</p>✔️<p class="reclamaremos-y-defen-kr4sBN nunito-light-white-14px" data-id="3d3ba2d3-0158-4e3d-b827-59b81dfd3dc0">Reclamaremos y defenderemos tus intereses amistosamente. Si la gestión amistosa no prospera, y el conflicto tiene que resolverse mediante un procedimiento administrativo, arbitral o judicial, nos hacemos cargo de los GASTOS JUDICIALES.</p></div><div class="mediacion-jw7oJ7" data-id="3be14245-2956-4301-ae1b-050e65921eea"><div class="mediacin-PtWvS9 nunito-bold-white-14px" data-id="c35b23b8-46d9-41cb-adc7-35601ecda991">MEDIACIÓN</div>✔️<p class="la-mediacin-es-una-f-PtWvS9 nunito-light-white-14px" data-id="666d6eca-68b7-4ed3-9761-cc9f53716c8a">La mediación es una forma voluntaria de resolución de controversias entre dos partes con la ayuda de una tercera persona, cualificada, imparcial y neutral que les guía en la consecución de un acuerdo por sí mismas. Este sistema, rápido y con un alto porcentaje de éxito en la resolución de conflictos, es útil especialmente en aquellos casos en que se ha roto la comunicación entre las partes que deben continuar manteniendo relaciones en el futuro.</p></div><div class="escritos-jw7oJ7" data-id="8a8bf63d-9edb-4290-aa96-2dc0d7853384"><div class="redaccin-de-escritos-Wpzf53 nunito-bold-white-14px" data-id="1ac1177a-fa74-4217-b7eb-4edf5b76b6a7">REDACCIÓN DE ESCRITOS</div><p class="con-la-finalidad-de-Wpzf53 nunito-light-white-14px" data-id="87ead07a-93f7-4ddd-a4a9-af7668ca4d4f">Con la finalidad de que intentes solucionar amistosamente tus conflictos con terceros. También redactaremos escritos que pueden resultarte un tanto complejos por tener un cierto contenido jurídico, ya sea porque carezcas de conocimientos jurídicos, no estés habituado o simplemente no dispongas de tiempo para ello.</p>✔️</div><div class="orientacion-jw7oJ7" data-id="0e9b6d5a-b2fc-4e42-9e30-66b64f741fe6"><div class="orientacin-jurdica-telefnica-Q1pxFY nunito-bold-white-14px" data-id="bbd52ead-a060-41ba-8f03-4f90f1408157">ORIENTACIÓN JURÍDICA TELEFÓNICA</div><p class="su-finalidad-es-ases-Q1pxFY nunito-light-white-14px" data-id="2ce81091-c9a6-448b-b311-4ca5a0727904">Su finalidad es asesorarte en todas aquellas situaciones en que puedas prevenir o evitar un conflicto jurídico. También te orientaremos en los casos en que el conflicto ya se ha producido.</p>✔️</div><div class="multas-jw7oJ7" data-id="d5124a29-0a06-4732-be30-92ad20d535bf"><p class="recurso-de-multas-en-hj529w nunito-bold-white-14px" data-id="26adbe34-ea3c-4757-9d62-fffb6867f5fd">RECURSO DE MULTAS EN TRÁFICO AMISTOSA O JUDICIAL, relacionadas con la propiedad, uso o circulación de tu vehículo</p><p class="presentacin-de-recur-hj529w nunito-light-white-14px" data-id="f322694e-d484-41f1-9942-f41fa000beea">Presentación de recursos y alegaciones y recursos en vía administrativa</p><p class="defensa-del-asegurad-hj529w nunito-light-white-14px" data-id="28be4ca8-8493-4f6a-9a99-9e4030907347">Defensa del asegurado en vía contencioso-administrativa prestada por los abogados del centro de asistencia jurídica de DAS.</p>✔️</div><div class="monitorizacion-jw7oJ7" data-id="4ec040d4-5e36-46e6-a894-0e90bae437f2"><p class="monitorizacin-de-sanciones-de-tu-vehculo-2NfjwA nunito-bold-white-14px" data-id="bcbc4f3f-7748-41d6-ab19-d43be19d72a7">MONITORIZACIÓN DE SANCIONES de tu vehículo</p><p class="bsqueda-de-sanciones-2NfjwA nunito-light-white-14px" data-id="d6ba4d37-3aef-4db7-9728-f1fc886f64a0">Búsqueda de sanciones o denuncias por infracciones.</p><div class="comunicacin-del-conductor-2NfjwA nunito-light-white-14px" data-id="14099bdf-e1c9-4098-84d2-8378480a3318">Comunicación del conductor </div>✔️</div><p class="resumen-de-coberturas-de-tu-pliza-jw7oJ7" data-id="f62068f6-f7d3-4735-8d03-24cdb8783212">Resumen de Coberturas de tu póliza</p></div><div class="rectngulo-27-iM91X0" data-id="b1b76ea8-7f5e-4b18-b44c-1bd4eaac8e72"></div><div class="grupo-9-iM91X0" data-id="5cfe41cd-9564-4e67-9893-4e1022dc7bee"><p class="nombre-juan-fernndez-EgEYoI" data-id="e89465aa-7744-4c70-94d1-2e5b69f349d0"><span class="span0-xNhht8 nunito-normal-white-14px">Nombre: </span><span class="span1-xNhht8 nunito-extra-light-white-14px">XXX001<br></span><span class="span2-xNhht8 nunito-normal-white-14px">CIF: </span><span class="span3-xNhht8 nunito-extra-light-white-14px">XXX002<br></span><span class="span4-xNhht8 nunito-normal-white-14px">Matrícula: </span><span class="span5-xNhht8 nunito-extra-light-white-14px">XXX003<br></span><span class="span6-xNhht8 nunito-normal-white-14px"><br>Nº Póliza: </span><span class="span7-xNhht8 nunito-extra-light-white-14px">XXX004<br></span><span class="span8-xNhht8 nunito-normal-white-14px">Efecto: </span><span class="span9-xNhht8 nunito-extra-light-white-14px">XXX005<br></span><span class="span10-xNhht8 nunito-normal-white-14px">Vencimiento: </span><span class="span11-xNhht8 nunito-extra-light-white-14px">XXX001</span></p><div class="x-EgEYoI nunito-extra-light-white-14px" data-id="48ac5761-f3eb-4a87-85f5-d446dbec60f4"><br><br></div></div><div class="grupo-8-iM91X0" data-id="a4eaba66-52c5-411c-8cb0-b7b1105952be"><div class="mis-datos-personales-0tjwbb" data-id="39b4a2ae-ce35-4f93-961d-d2b92997998e">Mis datos personales</div></div><div class="area-privada-iM91X0" data-id="5594ff97-272c-462d-a6bd-e578af04b907"><h1 class="rea-privada-QNdrUh" data-id="c918ef2b-808e-4ba4-b6a9-4bb485b0d283">Área Privada</h1><img class="in_app_msg_ilustracion_escudo-QNdrUh" data-id="f1f56ea3-9500-4f42-946a-3791da29051a" src="https://lisa-seguros.com/RBT/in-app-msg-ilustracion-escudo@1x.png" ><div class="seguro-conductor-protegido-QNdrUh" data-id="7a1a4aef-3c11-453a-90e0-63afdbcded68">Seguro Conductor Protegido</div><p class="con-la-garanta-de-das-QNdrUh nunito-normal-white-14px" data-id="9424b25d-335c-4a46-ac3d-86968a20a6fb">Con la garantía de DAS</p><img class="das-QNdrUh" data-id="ee3e0b8e-a42d-43fe-88c0-ca46d56bf480" src="https://lisa-seguros.com/RBT/das@1x.png" ></div><div class="nav-iM91X0" data-id="45a9ac4a-ec3c-4fae-b413-bfdde0539a5f"><div class="rectngulo-1-xxw0E4" data-id="a898c6fb-8e60-403f-990e-a047b79ba977"></div><img class="logo-detector-de-radares-xxw0E4" data-id="55dadcef-ac26-4c37-83b0-81314345d499" src="https://lisa-seguros.com/RBT/logo-detector-de-radares@1x.png" ><img class="lnea-1-xxw0E4" data-id="b66fdda3-f8cf-4abd-8cad-46d35ce2f1f6" src="https://lisa-seguros.com/RBT/l-nea-1@1x.png" ></div></div></div></body></html>
