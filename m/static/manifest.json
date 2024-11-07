@@ -1,0 +1,42 @@
+{
+  "name": "Asegura tu Factura",
+  "short_name": "ATD",
+  "description": "Asegura tu Factura",
+  "lang": "es-ES",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#a93ee9",
+  "theme_color": "#a93ee9",
+  "icons": [
+    {
+      "src": "/static/icons/128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
