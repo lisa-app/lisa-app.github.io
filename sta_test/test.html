@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>LISA Test</title>
+<style>
+body{
+	font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 11pt;
+	padding: 2rem;
+}
+</style>
+</head>
+<body>
+
+<b>Opción A - API</b>
+<hr>
+Solicitar URL de destino vía API:<br>
+userID: <input id="userIDapi" value="123" /><br>
+<button id="goApiBtn" onclick="callAPI()">Go!</button>
+<div id="apiResponse" style="font-size:.7rem;color:#999;margin:.5rem 0"></div>
+<div id="apiResponse2" style="font-size:.85rem;color:#a00"></div>
+
+<br><br><br><br>
+
+<b>Opción B - FORM</b>
+<hr>
+Formulario para ir a LISA directamente:
+<form method="POST" action="https://stal-ymmnpzsagq-ew.a.run.app/">
+	userID: <input name="userID" value="123" /><br>
+	<input type="hidden" name="partnerID" value="d38c58d8-8733-4ab9-84b4-08c4f6acb764" />
+	<input type="hidden" name="callType" value="autoform" />
+	<input type="submit" value="Go!" />
+</form>
+</body>
+<script>
+//OPCIÓN A
+//--------------------------------
+
+
+//OPCIÓN B
+//--------------------------------
+function callAPI(){
+	document.getElementById('goApiBtn').innerText = 'Conectando...'
+	fetch("https://stal-ymmnpzsagq-ew.a.run.app/", {
+	  method: "POST",
+	  body: JSON.stringify({
+	    callType:"api",
+	    partnerID:"d38c58d8-8733-4ab9-84b4-08c4f6acb764",
+	    userID: document.getElementById('userIDapi').value
+	  }),
+	  headers: {
+	    "Content-type": "application/json"
+	  }
+	})
+	.then((response) => response.json())
+	.then(function(json) {
+		console.log(json.url);
+		//alert('Destination URL: '+json.url)
+		document.getElementById('goApiBtn').innerText = 'Go!'
+		document.getElementById('apiResponse').innerHTML = 'API Response:<br>'+JSON.stringify(json);
+		document.getElementById('apiResponse2').innerHTML = 'Destination URL: <b>'+json.url+'</b>';
+		//window.location.href=json.url;
+	})
+	.catch((error) => console.log(error))
+	}
+</script>
+</html>
