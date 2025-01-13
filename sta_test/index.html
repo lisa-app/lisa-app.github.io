@@ -1,0 +1,29 @@
+<html>
+<head><title>LISA Test</title><style></style></head>
+<body>
+Cargando...
+  <script type="module">
+	import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js';
+	import { getAuth, onAuthStateChanged, signInWithCustomToken, setPersistence, inMemoryPersistence } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js';
+  const _0x26cf15=_0x4997;function _0x4997(_0x10fc60,_0x1b7af7){const _0x4ba275=_0x4ba2();return _0x4997=function(_0x499734,_0x390ddb){_0x499734=_0x499734-0x15e;let _0x2fbbe3=_0x4ba275[_0x499734];return _0x2fbbe3;},_0x4997(_0x10fc60,_0x1b7af7);}function _0x4ba2(){const _0x3b3bbc=['AIzaSyDD2uA4SoqXZ4B1loHMZNRB0i9z_7uLgYM','9402160akLzaH','777inyybU','3742210YPBzTw','2542645aWeJcs','697655cdgqJG','1:67159003853:web:e5cc31baa7495587c40f84','lisa-rc-obra.firebaseapp.com','4CaPJrz','14tXNMJn','26YloFeT','3048942wsUTLF','67159003853','6494445rjFxtM'];_0x4ba2=function(){return _0x3b3bbc;};return _0x4ba2();}(function(_0x32a06c,_0x31a091){const _0x1138ac=_0x4997,_0x38a5b8=_0x32a06c();while(!![]){try{const _0x14d50d=-parseInt(_0x1138ac(0x163))/0x1+parseInt(_0x1138ac(0x168))/0x2*(-parseInt(_0x1138ac(0x160))/0x3)+-parseInt(_0x1138ac(0x166))/0x4*(parseInt(_0x1138ac(0x162))/0x5)+parseInt(_0x1138ac(0x169))/0x6*(parseInt(_0x1138ac(0x167))/0x7)+parseInt(_0x1138ac(0x15f))/0x8+-parseInt(_0x1138ac(0x16b))/0x9+parseInt(_0x1138ac(0x161))/0xa;if(_0x14d50d===_0x31a091)break;else _0x38a5b8['push'](_0x38a5b8['shift']());}catch(_0x4707e6){_0x38a5b8['push'](_0x38a5b8['shift']());}}}(_0x4ba2,0x9af19));const ﾠ= {'apiKey':_0x26cf15(0x15e),'authDomain':_0x26cf15(0x165),'messagingSenderId':_0x26cf15(0x16a),'appId':_0x26cf15(0x164)};
+	const app = initializeApp(ﾠ);
+	const auth = getAuth( );
+	await setPersistence(auth, inMemoryPersistence);
+	var _tken = new URLSearchParams(window.location.search);
+	var TK = _tken.get('tk')
+	if (!TK){
+		document.body.innerHTML = 'Sorry. No token available'
+	} else {
+		signInWithCustomToken(auth, TK)
+		.then((userCredential) => {
+		  console.log('yes_tk');
+		  document.body.innerHTML = 'User OK! 👍'
+		})
+		.catch(() => {
+		  console.log('no_errtk');
+		  document.body.innerHTML = 'User is <b>INVALID</b>. No logged!'
+		});
+	}
+  </script>
+</body>
+</html>
